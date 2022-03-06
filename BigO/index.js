@@ -20,8 +20,7 @@ function print_champ(array) {
   console.log(array[0]);
 }
 
-print_champ(everyone);
-
+// print_champ(everyone);
 
 ////////////////////////////********************///////////////////////////////////////
 
@@ -36,16 +35,24 @@ function find_champ(array) {
   }
 }
 
-find_champ(everyone);
+// find_champ(everyone);
 
 ////////////////////////////********************///////////////////////////////////////
-
 
 // Rule Book
 // Rule 1: Worst case,
 // Rule 2: Remove Constants,
 // Rule 3: Different Terms for Input,
 // Rule 4: Drop Non Dominants
+
+// Anything that happens with same indentation, you should add O(a+b)
+// Anything that happens with nested indentation, you should multiply O(a*b)
+
+// Right Data Structures + Right Algorithms = Good Programs
+
+// Readable + Scalable = Good Code
+
+// Scalable = Speed + Memory
 
 ////////////////////////////********************///////////////////////////////////////
 
@@ -73,7 +80,7 @@ function compress_orders(orders, orders_p) {
 }
 
 // O(a + b) or O(n + m)
-compress_orders(orders, priority_orders);
+// compress_orders(orders, priority_orders);
 
 ////////////////////////////********************///////////////////////////////////////
 
@@ -91,6 +98,62 @@ function log_all_pairs_of_array(orders) {
 }
 
 // O(n * n)
-log_all_pairs_of_array(new_orders);
+// log_all_pairs_of_array(new_orders);
 
 ////////////////////////////********************///////////////////////////////////////
+
+const new_numbers = [1, 2, 3];
+
+// O(n^2) QUADRATIC TIME
+function log_all_numbers_and_then_log_all_pairs_of_array(numbers) {
+  console.log("numbers only");
+
+  // O(n)
+  for (let k = 0; k < numbers.length; k++) {
+    console.log(numbers[k]);
+  }
+
+  console.log("sum of each pair");
+
+  // O(n)
+  for (let i = 0; i < numbers.length; i++) {
+    // O(n)
+    for (let j = 0; j < numbers.length; j++) {
+      console.log(numbers[i], "+",  numbers[j]);
+      console.log(numbers[i] + numbers[j]);
+    }
+  }
+}
+
+// O(n + n * n) -> Rule 4: Drop Non Dominants
+// log_all_numbers_and_then_log_all_pairs_of_array(new_numbers);
+
+////////////////////////////********************///////////////////////////////////////
+
+// Given 2 arrays, create a function that let's a user know (true/false) whether these two arrays contain any common items
+//For Example:
+//const array1 = ['a', 'b', 'c', 'x'];//const array2 = ['z', 'y', 'i'];
+//should return false.
+//-----------
+//const array1 = ['a', 'b', 'c', 'x'];//const array2 = ['z', 'y', 'x'];
+//should return true.
+
+// 2 parameters - arrays - no size limit
+// return true or false
+
+const array1 = ['a','b','c','d','x']
+const array2 = ['q', 'w', 's']
+
+function containCommonItems(arrayA, arrayB) {
+
+    for (let i = 0; i < arrayA.length; i++) {
+        for (let j = 0; j < arrayB.length; j++) {
+            if (arrayA[i] === arrayB[j]) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+console.log(containCommonItems(array1, array2))
