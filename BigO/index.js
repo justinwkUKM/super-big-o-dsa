@@ -142,9 +142,9 @@ function log_all_numbers_and_then_log_all_pairs_of_array(numbers) {
 // return true or false
 
 const array1 = ['a','b','c','d','x']
-const array2 = ['q', 'w', 's']
+const array2 = ['q', 'w', 'z']
 
-function containCommonItems(arrayA, arrayB) {
+function containCommonItemsOn2(arrayA, arrayB) {
 
     for (let i = 0; i < arrayA.length; i++) {
         for (let j = 0; j < arrayB.length; j++) {
@@ -155,5 +155,32 @@ function containCommonItems(arrayA, arrayB) {
     }
     return false
 }
+// Time Complexity O(n^2)
+// Space Complexity O(1)
+// console.log(containCommonItemsOn2(array1, array2))
 
-console.log(containCommonItems(array1, array2))
+
+function containCommonItemsOn(arrayA, arrayB) {
+
+    let map = {}
+    for (let i = 0; i < arrayA.length; i++) {
+        map[arrayA[i]] = true
+    }
+
+    for (let j = 0; j < arrayB.length; j++) {
+        if(map[arrayB[j]]){
+            return true
+        }
+    }
+    console.table(map)
+    return false
+}
+// Time Complexity O(n + n)
+// Space Complexity O(n)
+// console.log(containCommonItemsOn(array1, array2))
+
+function containCommonItemsOnReadble(array1, array2) {
+    return array1.some(item => array2.includes(item))
+}
+
+console.log(containCommonItemsOnReadble(array1, array2))
